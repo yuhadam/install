@@ -34,7 +34,7 @@ done
 
 for((i=3;i<$arrlen;i++))
 do
-ssh root@${array[$i]} "yum install -y git && cd /root/ && git clone http://github.com/mjkam/dcos && cd dcos && ./install_nobootstrap.sh"
+ssh root@${array[$i]} "yum -y update && yum install -y git && cd /root/ && git clone http://github.com/ichthysngs/install && cd install && ./install_nobootstrap.sh"
 echo "#####finish#####"
 done
 
