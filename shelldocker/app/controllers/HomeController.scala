@@ -41,7 +41,7 @@ class HomeController @Inject() extends Controller {
     val lastStr = workeriparr.foldLeft(newStr)((m:String,n:JsValue) => m + n.toString()+" ")
     
     
-   
+    Logger.debug(lastStr)
     
     Process(lastStr).run
     
