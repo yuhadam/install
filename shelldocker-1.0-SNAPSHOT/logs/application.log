@@ -1,0 +1,89 @@
+2016-09-29 17:18:45,836 [ERROR] from net.sf.ehcache.Cache in main - Unable to set localhost. This prevents creation of a GUID. Cause was: mail.test.com
+yhkim-13Z940-GT3MK: mail.test.com
+yhkim-13Z940-GT3MK: unknown error
+java.net.UnknownHostException: mail.test.com
+yhkim-13Z940-GT3MK: mail.test.com
+yhkim-13Z940-GT3MK: unknown error
+	at java.net.InetAddress.getLocalHost(InetAddress.java:1505)
+	at net.sf.ehcache.Cache.<clinit>(Cache.java:214)
+	at net.sf.ehcache.config.ConfigurationHelper.createCache(ConfigurationHelper.java:296)
+	at net.sf.ehcache.config.ConfigurationHelper.createDefaultCache(ConfigurationHelper.java:219)
+	at net.sf.ehcache.CacheManager.configure(CacheManager.java:722)
+	at net.sf.ehcache.CacheManager.doInit(CacheManager.java:439)
+	at net.sf.ehcache.CacheManager.init(CacheManager.java:377)
+	at net.sf.ehcache.CacheManager.<init>(CacheManager.java:259)
+	at net.sf.ehcache.CacheManager.newInstance(CacheManager.java:1037)
+	at net.sf.ehcache.CacheManager.newInstance(CacheManager.java:936)
+	at net.sf.ehcache.CacheManager.create(CacheManager.java:904)
+	at play.api.cache.CacheManagerProvider.get$lzycompute(Cache.scala:207)
+	at play.api.cache.CacheManagerProvider.get(Cache.scala:204)
+	at play.api.cache.CacheManagerProvider.get(Cache.scala:203)
+	at com.google.inject.internal.ProviderInternalFactory.provision(ProviderInternalFactory.java:81)
+	at com.google.inject.internal.BoundProviderFactory.provision(BoundProviderFactory.java:72)
+	at com.google.inject.internal.ProviderInternalFactory.circularGet(ProviderInternalFactory.java:61)
+	at com.google.inject.internal.BoundProviderFactory.get(BoundProviderFactory.java:62)
+	at com.google.inject.internal.SingleFieldInjector.inject(SingleFieldInjector.java:54)
+	at com.google.inject.internal.MembersInjectorImpl.injectMembers(MembersInjectorImpl.java:132)
+	at com.google.inject.internal.MembersInjectorImpl$1.call(MembersInjectorImpl.java:93)
+	at com.google.inject.internal.MembersInjectorImpl$1.call(MembersInjectorImpl.java:80)
+	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1103)
+	at com.google.inject.internal.MembersInjectorImpl.injectAndNotify(MembersInjectorImpl.java:80)
+	at com.google.inject.internal.MembersInjectorImpl.injectMembers(MembersInjectorImpl.java:62)
+	at com.google.inject.internal.InjectorImpl.injectMembers(InjectorImpl.java:984)
+	at com.google.inject.util.Providers$GuicifiedProviderWithDependencies.initialize(Providers.java:149)
+	at com.google.inject.util.Providers$GuicifiedProviderWithDependencies$$FastClassByGuice$$2a7177aa.invoke(<generated>)
+	at com.google.inject.internal.cglib.reflect.$FastMethod.invoke(FastMethod.java:53)
+	at com.google.inject.internal.SingleMethodInjector$1.invoke(SingleMethodInjector.java:57)
+	at com.google.inject.internal.SingleMethodInjector.inject(SingleMethodInjector.java:91)
+	at com.google.inject.internal.MembersInjectorImpl.injectMembers(MembersInjectorImpl.java:132)
+	at com.google.inject.internal.MembersInjectorImpl$1.call(MembersInjectorImpl.java:93)
+	at com.google.inject.internal.MembersInjectorImpl$1.call(MembersInjectorImpl.java:80)
+	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1092)
+	at com.google.inject.internal.MembersInjectorImpl.injectAndNotify(MembersInjectorImpl.java:80)
+	at com.google.inject.internal.Initializer$InjectableReference.get(Initializer.java:174)
+	at com.google.inject.internal.Initializer.injectAll(Initializer.java:108)
+	at com.google.inject.internal.InternalInjectorCreator.injectDynamically(InternalInjectorCreator.java:174)
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:110)
+	at com.google.inject.Guice.createInjector(Guice.java:96)
+	at com.google.inject.Guice.createInjector(Guice.java:84)
+	at play.api.inject.guice.GuiceBuilder.injector(GuiceInjectorBuilder.scala:181)
+	at play.api.inject.guice.GuiceApplicationBuilder.build(GuiceApplicationBuilder.scala:123)
+	at play.api.inject.guice.GuiceApplicationLoader.load(GuiceApplicationLoader.scala:21)
+	at play.core.server.ProdServerStart$.start(ProdServerStart.scala:47)
+	at play.core.server.ProdServerStart$.main(ProdServerStart.scala:22)
+	at play.core.server.ProdServerStart.main(ProdServerStart.scala)
+Caused by: java.net.UnknownHostException: mail.test.com
+yhkim-13Z940-GT3MK: unknown error
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:928)
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1323)
+	at java.net.InetAddress.getLocalHost(InetAddress.java:1500)
+	... 47 common frames omitted
+2016-09-29 17:18:54,915 [INFO] from application in main - ApplicationTimer demo: Starting application at 2016-09-29T08:18:54.902Z.
+2016-09-29 17:18:54,925 [INFO] from play.api.Play in main - Application started (Prod)
+2016-09-29 17:18:55,120 [INFO] from play.core.server.NettyServer in main - Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+2016-09-29 17:19:20,561 [DEBUG] from application in application-akka.actor.default-dispatcher-9 - {"interfaceval":"123","passwordval":"213","sshportval":"1123","masteriparr":["211"],"workeriparr":[]}
+2016-09-29 17:19:20,562 [DEBUG] from application in application-akka.actor.default-dispatcher-9 - bash /install/install_bootstrap.sh 123 213 1123 211 
+2016-09-29 17:20:21,796 [DEBUG] from application in application-akka.actor.default-dispatcher-19 - {"interfaceval":"eth0","passwordval":"dlrxntm123","sshportval":"22","masteriparr":["211.249.63.201"],"workeriparr":["10.32.18.168","10.32.21.247"]}
+2016-09-29 17:20:21,797 [DEBUG] from application in application-akka.actor.default-dispatcher-19 - bash /install/install_bootstrap.sh eth0 dlrxntm123 22 211.249.63.201 "10.32.18.168" "10.32.21.247" 
+2016-09-29 17:20:53,188 [DEBUG] from application in application-akka.actor.default-dispatcher-10 - {"interfaceval":"eth0","passwordval":"dlrxntm123","sshportval":"22","masteriparr":["211.249.63.201","211.249.63.201"],"workeriparr":["10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247"]}
+2016-09-29 17:20:53,188 [DEBUG] from application in application-akka.actor.default-dispatcher-10 - bash /install/install_bootstrap.sh eth0 dlrxntm123 22 211.249.63.201 211.249.63.201 "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" 
+2016-09-29 17:20:53,354 [DEBUG] from application in application-akka.actor.default-dispatcher-10 - {"interfaceval":"eth0","passwordval":"dlrxntm123","sshportval":"22","masteriparr":["211.249.63.201","211.249.63.201","211.249.63.201"],"workeriparr":["10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247"]}
+2016-09-29 17:20:53,355 [DEBUG] from application in application-akka.actor.default-dispatcher-10 - bash /install/install_bootstrap.sh eth0 dlrxntm123 22 211.249.63.201 211.249.63.201 211.249.63.201 "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" 
+2016-09-29 17:20:53,813 [DEBUG] from application in application-akka.actor.default-dispatcher-22 - {"interfaceval":"eth0","passwordval":"dlrxntm123","sshportval":"22","masteriparr":["211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201"],"workeriparr":["10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247"]}
+2016-09-29 17:20:53,813 [DEBUG] from application in application-akka.actor.default-dispatcher-22 - bash /install/install_bootstrap.sh eth0 dlrxntm123 22 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" 
+2016-09-29 17:20:53,963 [DEBUG] from application in application-akka.actor.default-dispatcher-22 - {"interfaceval":"eth0","passwordval":"dlrxntm123","sshportval":"22","masteriparr":["211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201"],"workeriparr":["10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247"]}
+2016-09-29 17:20:53,964 [DEBUG] from application in application-akka.actor.default-dispatcher-22 - bash /install/install_bootstrap.sh eth0 dlrxntm123 22 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" 
+2016-09-29 17:20:54,116 [DEBUG] from application in application-akka.actor.default-dispatcher-22 - {"interfaceval":"eth0","passwordval":"dlrxntm123","sshportval":"22","masteriparr":["211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201"],"workeriparr":["10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247"]}
+2016-09-29 17:20:54,116 [DEBUG] from application in application-akka.actor.default-dispatcher-22 - bash /install/install_bootstrap.sh eth0 dlrxntm123 22 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" 
+2016-09-29 17:20:54,258 [DEBUG] from application in application-akka.actor.default-dispatcher-22 - {"interfaceval":"eth0","passwordval":"dlrxntm123","sshportval":"22","masteriparr":["211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201"],"workeriparr":["10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247"]}
+2016-09-29 17:20:54,259 [DEBUG] from application in application-akka.actor.default-dispatcher-22 - bash /install/install_bootstrap.sh eth0 dlrxntm123 22 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" 
+2016-09-29 17:23:39,357 [DEBUG] from application in application-akka.actor.default-dispatcher-21 - {"interfaceval":"eth0","passwordval":"dlrxntm123","sshportval":"22","masteriparr":["211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201"],"workeriparr":["10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247"]}
+2016-09-29 17:23:39,357 [DEBUG] from application in application-akka.actor.default-dispatcher-21 - bash /install/install_bootstrap.sh eth0 dlrxntm123 22 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" 
+2016-09-29 17:23:39,505 [DEBUG] from application in application-akka.actor.default-dispatcher-21 - {"interfaceval":"eth0","passwordval":"dlrxntm123","sshportval":"22","masteriparr":["211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201"],"workeriparr":["10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247"]}
+2016-09-29 17:23:39,506 [DEBUG] from application in application-akka.actor.default-dispatcher-21 - bash /install/install_bootstrap.sh eth0 dlrxntm123 22 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" 
+2016-09-29 17:23:39,647 [DEBUG] from application in application-akka.actor.default-dispatcher-21 - {"interfaceval":"eth0","passwordval":"dlrxntm123","sshportval":"22","masteriparr":["211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201"],"workeriparr":["10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247"]}
+2016-09-29 17:23:39,648 [DEBUG] from application in application-akka.actor.default-dispatcher-21 - bash /install/install_bootstrap.sh eth0 dlrxntm123 22 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" 
+2016-09-29 17:23:39,779 [DEBUG] from application in application-akka.actor.default-dispatcher-21 - {"interfaceval":"eth0","passwordval":"dlrxntm123","sshportval":"22","masteriparr":["211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201","211.249.63.201"],"workeriparr":["10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247","10.32.18.168","10.32.21.247"]}
+2016-09-29 17:23:39,780 [DEBUG] from application in application-akka.actor.default-dispatcher-21 - bash /install/install_bootstrap.sh eth0 dlrxntm123 22 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 211.249.63.201 "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" "10.32.18.168" "10.32.21.247" 
+2016-09-29 17:24:32,686 [INFO] from application in Thread-7 - ApplicationTimer demo: Stopping application at 2016-09-29T08:24:32.686Z after 338s.
