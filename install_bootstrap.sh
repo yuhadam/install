@@ -16,22 +16,7 @@ masterip="${array[3]}"
 arrlen=${#array[@]}
 
 
-echo "$index"
 
-
-
-echo $index
-echo $portNum
-echo $masterIpNum
-echo $masterip
-
-for value in "${array[@]}"
-do
-echo $value
-done
-
-
-: << 'END'
 yum -y update
 yum install -y vim
 yum install -y net-tools
@@ -208,6 +193,6 @@ done
 echo "##############################################################################"
 echo "###############            all finished              #########################"
 echo "##############################################################################"
-END
+
 
 
