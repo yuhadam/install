@@ -52,7 +52,7 @@ var main = function() {
 		$.ajax({
 			type: 'POST',
 			crossOrigin: true,
-			url: "http://localhost:9000/",
+			url: "http://localhost:9000/install",
 			data: {data: jsonstr},
 			success: function(e) {
 				alert(e);
