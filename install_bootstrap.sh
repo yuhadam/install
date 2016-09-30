@@ -25,7 +25,7 @@ yum install -y wget
 echo -e "\n" | ssh-keygen -t rsa -N ""
 wget http://apt.sw.be/redhat/el7/en/x86_64/rpmforge/RPMS/sshpass-1.05-1.el7.rf.x86_64.rpm
 
-rpm -Uvh sshpass-1.05-1.el7.rf.x86_64.rpm
+rpm -Uvh /install/sshpass-1.05-1.el7.rf.x86_64.rpm
 
 for((i=3;i<$arrlen; i++))
 do
