@@ -10,40 +10,19 @@
         <meta charset="utf-8">
         <title> Install Caleb ver. 1.0 </title>  
        
-       <script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery.ajax-cross-origin.min.js")"></script>
-      <script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery-2.1.4.min.js")"></script>
-      <script type="text/javascript" src="@routes.Assets.versioned("javascripts/app.js")"></script>
+
 
          <!-- Base Css Files -->
-        <link href="/assets/assets/libs/jqueryui/ui-lightness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
-        <link href="/assets/assets/libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
-        <link href="/assets/assets/libs/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" />
-        <link href="/assets/assets/libs/fontello/css/fontello.css" rel="stylesheet" />
-        <link href="/assets/assets/libs/animate-css/animate.min.css" rel="stylesheet" />
-        <link href="/assets/assets/libs/nifty-modal/css/component.css" rel="stylesheet" />
-        <link href="/assets/assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet" /> 
-        <link href="/assets/assets/libs/ios7-switch/ios7-switch.css" rel="stylesheet" /> 
-        <link href="/assets/assets/libs/pace/pace.css" rel="stylesheet" />
-        <link href="/assets/assets/libs/sortable/sortable-theme-bootstrap.css" rel="stylesheet" />
-        <link href="/assets/assets/libs/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
-        <link href="/assets/assets/libs/jquery-icheck/skins/all.css" rel="stylesheet" />
-        <link href="/assets/assets/libs/bootstrap-dialog/css/bootstrap-dialog.css" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("assets/libs/bootstrap/css/bootstrap.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("assets/libs/pace/pace.css")" rel="stylesheet" />
         <!-- Code Highlighter for Demo -->
-        <link href="/assets/assets/libs/prettify/github.css" rel="stylesheet" />
-        
-                <!-- Extra CSS Libraries Start -->
-                <link href="/assets/assets/libs/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
-                <link href="/assets/assets/libs/bootstrap-validator/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
-                <link href="/assets/assets/css/style.css" rel="stylesheet" type="text/css" />
-                <!-- Extra CSS Libraries End -->
-        <link href="/assets/assets/css/style-responsive.css" rel="stylesheet" />
-        
-        <!-- Step Form Wizard plugin -->
-        <link rel="stylesheet" href="step-form-wizard/css/step-form-wizard-all.css" type="text/css" media="screen, projection">
-     
-        <!-- nicer scroll in steps -->
-        <link rel="stylesheet" href="plugins/mcustom-scrollbar/jquery.mCustomScrollbar.min.css">
        
+                <!-- Extra CSS Libraries Start -->
+              
+                <link href="@routes.Assets.versioned("assets/css/style.css")" rel="stylesheet" type="text/css" />
+                <!-- Extra CSS Libraries End -->
+       
+    
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -70,6 +49,7 @@
             </div><!--section container top end-->
         </section><!--section top end-->
         <section class="hero-banner"><!--section middle start-->
+        <form data-toggle="validator"  ><!--table form start-->
             <div class="container"><!---container start-->
                 <div class="data-table-toolbar">
                    <div class="row">
@@ -82,15 +62,15 @@
                     </div>
                 </div><!---table top add and delete button end-->
                 <div class="table-responsive"><!--- div table start-->
-                    <form role="form" id="NotEmptyValidator"><!--table form start-->
+                    
                         <table data-sortable class="table table-hover table-striped"><!--table start-->
                             <thead>
                                 <tr style="height:50px">
-                                   <th data-sortable="false" style="text-align:center;">Master/Worker</th>
-                                   <th data-sortable="false" style="text-align:center;">IP Address</th>
-                                   <th data-sortable="false" style="text-align:center;">SSH Port</th>
-                                   <th data-sortable="false" style="text-align:center;">Interface</th>
-                                   <th data-sortable="false" style="text-align:center;">Password</th>
+                                   <th  style="text-align:center;">Master/Worker</th>
+                                   <th  style="text-align:center;">IP Address</th>
+                                   <th  style="text-align:center;">SSH Port</th>
+                                   <th  style="text-align:center;">Interface</th>
+                                   <th  style="text-align:center;">Password</th>
                                 </tr>
                             </thead>
                             <tbody class="tbodyclass">
@@ -100,20 +80,19 @@
                                     <td>
                                    <select class="form-control selectpicker" id='1select' >
                                        <option>Master</option>
-                                       <option>Worker</option>
                                    </select>
 	                               </td>
 	                                    <td>
-	                                   <input id="1ipaddress" class="form-control" placeholder="IP Address" style="text-align:center;">
+	                                   <input class="form-control" id="1ipaddress" class="form-control" placeholder="IP Address" style="text-align:center;" required="required">
 	                               </td>
 	                                    <td>
-	                                   <input id="1sshport" class="form-control" placeholder="SSH Port" style="text-align:center;">
+	                                   <input class="form-control" id="1sshport" class="form-control" placeholder="SSH Port" style="text-align:center;" required="required">
 	                               </td>
 	                                    <td>
-	                                   <input id="1interface" class="form-control" placeholder="Interface" style="text-align:center;">
+	                                   <input class="form-control" id="1interface" class="form-control" placeholder="Interface" style="text-align:center;" required="required">
 	                               </td>
 	                                    <td>
-	                                   <input id="1password" class="form-control" placeholder="Password" style="text-align:center;">
+	                                   <input class="form-control" id="1password" class="form-control" placeholder="Password" style="text-align:center;" required="required">
 	                               </td>
 	                                </tr>	
                             		
@@ -122,7 +101,7 @@
                                 
                             </tbody>
                         </table><!--table end-->
-                    </form><!--table form end-->
+                    
                 </div><!---div table end-->
                 <div class="data-table-toolbar"><!---table install button start-->
                     <div class="col-md-12" style="text-align:center">
@@ -130,6 +109,7 @@
                     </div>
                 </div><!---table install button end-->
             </div> <!---container end-->
+            </form><!--table form end-->
         </section><!--section middle end-->
     </div><!--wrapper end--> 
 
@@ -137,28 +117,14 @@
         var resizefunc = [];
     </script>
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="/assets/assets/libs/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/assets/assets/libs/bootstrap-dialog/js/bootstrap-dialog.js"></script>
-	<script src="/assets/assets/libs/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
-	<script src="/assets/assets/libs/jquery-ui-touch/jquery.ui.touch-punch.min.js"></script>
-	<script src="/assets/assets/libs/jquery-detectmobile/detect.js"></script>
-	<script src="/assets/assets/libs/jquery-animate-numbers/jquery.animateNumbers.js"></script>
-	<script src="/assets/assets/libs/ios7-switch/ios7.switch.js"></script>
-	<script src="/assets/assets/libs/fastclick/fastclick.js"></script>
-	<script src="/assets/assets/libs/jquery-blockui/jquery.blockUI.js"></script>
-	<script src="/assets/assets/libs/bootstrap-bootbox/bootbox.min.js"></script>
-	<script src="/assets/assets/libs/jquery-slimscroll/jquery.slimscroll.js"></script>
-	<script src="/assets/assets/libs/jquery-sparkline/jquery-sparkline.js"></script>
-	<script src="/assets/assets/libs/nifty-modal/js/classie.js"></script>
-	<script src="/assets/assets/libs/nifty-modal/js/modalEffects.js"></script>
-	<script src="/assets/assets/libs/sortable/sortable.min.js"></script>
-	<script src="/assets/assets/libs/bootstrap-fileinput/bootstrap.file-input.js"></script>
-	<script src="/assets/assets/libs/bootstrap-select/bootstrap-select.min.js"></script>
-	<script src="/assets/assets/libs/bootstrap-select2/select2.min.js"></script>
-	<script src="/assets/assets/libs/magnific-popup/jquery.magnific-popup.min.js"></script> 
-	<script src="/assets/assets/libs/pace/pace.min.js"></script>
-	<script src="/assets/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-	<script src="/assets/assets/libs/jquery-icheck/icheck.min.js"></script>
-    <!-- Page Specific JS Libraries End -->
+            <script type="text/javascript" src="@routes.Assets.versioned("assets/libs/jquery/jquery-1.11.1.min.js")"></script>
+       <script type="text/javascript" src="@routes.Assets.versioned("javascripts/jquery.ajax-cross-origin.min.js")"></script>
+    
+      <script type="text/javascript" src="@routes.Assets.versioned("javascripts/app.js")"></script>
+	<script src="@routes.Assets.versioned("assets/libs/bootstrap/js/bootstrap.min.js")"></script>
+	<script src="@routes.Assets.versioned("assets/libs/pace/pace.min.js")"></script>
+	<!-- Page Specific JS Libraries End -->
+    <script src="@routes.Assets.versioned("assets/libs/bootstrap-validator/validator.min.js")"></script>
     </body>
 </html>
+

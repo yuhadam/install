@@ -13,14 +13,13 @@ var main = function() {
 				"<option>Worker</option>" +
 				"</select>" +
 				"</td>" +
-				"<td><input class='form-control' id='"+x+"ipaddress' placeholder='IP Address' style='text-align:center;'></td>" +				
-				"<td><input class='form-control' id='"+x+"sshport' placeholder='SSH Port' style='text-align:center;'></td>" +
-				"<td><input class='form-control' id='"+x+"interface' placeholder='Interface' style='text-align:center;'></td>" +						
-				"<td><input class='form-control' id='"+x+"password' placeholder='Password' style='text-align:center;'></td>" +							
+				"<td><input class='form-control' id='"+x+"ipaddress' placeholder='IP Address' style='text-align:center;' required='required'></td>" +				
+				"<td><input class='form-control' id='"+x+"sshport' placeholder='SSH Port' style='text-align:center;' readonly></td>" +
+				"<td><input class='form-control' id='"+x+"interface' placeholder='Interface' style='text-align:center;' readonly></td>" +						
+				"<td><input class='form-control' id='"+x+"password' placeholder='Password' style='text-align:center;' readonly></td>" +							
 				"</tr>");
-		
-		
 	});
+	
 	
 	$('#install-button').click(function() {
 		

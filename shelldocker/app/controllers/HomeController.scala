@@ -45,7 +45,7 @@ class HomeController @Inject() extends Controller {
     
     Process(lastStr).run
     
-    Ok("hi")
+    Ok("install..... ")
   }
 
 }
