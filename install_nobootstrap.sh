@@ -47,9 +47,9 @@ yum install -y ntp
 
 sed -i '21,24d' /etc/ntp.conf
 
-sed -i '21s/$/server 0.kr.pool.ntp.org\n/' /etc/ntp.conf
-sed -i '22s/$/server 1.asia.pool.ntp.org\n/' /etc/ntp.conf
-sed -i '23s/$/server 3.asia.pool.ntp.org\n/' /etc/ntp.conf
+sed -i '22s/$/server 0.kr.pool.ntp.org\n/' /etc/ntp.conf
+sed -i '23s/$/server 1.asia.pool.ntp.org\n/' /etc/ntp.conf
+sed -i '24s/$/server 3.asia.pool.ntp.org\n/' /etc/ntp.conf
 
 systemctl start ntpd
 systemctl enable ntpd
