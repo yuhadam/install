@@ -173,7 +173,7 @@ ENDPOINT_IP=$(./dcos service | grep chronos | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.
 
 
 ssh -T root@$masterip << EOSSH
-git clone http://github.com/ichthysngs/istallserver
+git clone http://www.github.com/ichthysngs/istallserver
 cd installserver
 sed -i "15s/^/curl -L -H 'Content-Type: application\/json' -X POST -d @docker.json $ENDPOINT_IP:$ENDPOINT_PORT/" launch.sh
 sed -i "16s/^/curl -L -X PUT $ENDPOINT_IP:$ENDPOINT_PORT/" launch.sh
