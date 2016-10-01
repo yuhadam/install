@@ -8,19 +8,20 @@ var main = function() {
 		x += 1;
 		$('.tbodyclass').append("<tr style='height:50px' id=x>" +
 				"<td>" +
-				"<select class='form-control selectpicker' id='"+x+"select'>" +
+				"<select class='form-control selectpicker' name='"+x+"select'>" +
 				"<option>Master</option>" +
 				"<option>Worker</option>" +
 				"</select>" +
 				"</td>" +
-				"<td><input class='form-control' id='"+x+"ipaddress' placeholder='IP Address' style='text-align:center;' required='required'></td>" +				
-				"<td><input class='form-control' id='"+x+"sshport' placeholder='SSH Port' style='text-align:center;' readonly></td>" +
-				"<td><input class='form-control' id='"+x+"interface' placeholder='Interface' style='text-align:center;' readonly></td>" +						
-				"<td><input class='form-control' id='"+x+"password' placeholder='Password' style='text-align:center;' readonly></td>" +							
+				"<td><input class='form-control' name='"+x+"ipaddress' placeholder='IP Address' style='text-align:center;'></td>" +				
+				"<td><input class='form-control' name='"+x+"sshport' placeholder='SSH Port' style='text-align:center;'></td>" +
+				"<td><input class='form-control' name='"+x+"interface' placeholder='Interface' style='text-align:center;'></td>" +						
+				"<td><input class='form-control' name='"+x+"password' placeholder='Password' style='text-align:center;'></td>" +							
 				"</tr>");
+		
+		
 	});
-	
-	
+	/*
 	$('#install-button').click(function() {
 		
 				
@@ -47,18 +48,17 @@ var main = function() {
 		obj.workeriparr=workeriparr;
 		
 		var jsonstr = JSON.stringify(obj);
-
+		
 		$.ajax({
 			type: 'POST',
-			crossOrigin: true,
-			url: "http://localhost:9000/install",
+			url: "http://localhost:9000/",
 			data: {data: jsonstr},
 			success: function(e) {
 				alert(e);
 			}
 		});
 		
-	});
+	});*/
 	
 };
 

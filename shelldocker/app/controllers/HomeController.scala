@@ -6,7 +6,11 @@ import play.api.mvc._
 import play.api.Logger
 import play.api.libs.json._
 import scala.sys.process._
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import scala.concurrent.Future
 
+
+case class Node(selectval: String,interfaceval: String, passwordval: String, sshportval: String, ipaddressval: String)
 /**
  * This controller creates an `Action` to handle HTTP requests to the
  * application's home page.
@@ -24,28 +28,50 @@ class HomeController @Inject() extends Controller {
     Ok(views.html.index())
   }
   
-  def install = Action { implicit request =>
-    val data = request.body.asFormUrlEncoded.get("data")(0)
-    val json = Json.parse(data)
-    val interfaceval = (json \ "interfaceval").as[String]
-    val passwordval = (json \ "passwordval").as[String]
-    val sshportval = (json \ "sshportval").as[String]
-    val masteriparr = (json \ "masteriparr").as[List[JsValue]]
-    val workeriparr = (json \ "workeriparr").as[List[JsValue]]
-    
-    val commandstr = "bash /install/install_bootstrap.sh " + interfaceval + " " + passwordval + " " + sshportval+" "
-    Logger.debug(json.toString())
+  def install = Action { request =>
     
     
-    val newStr = masteriparr.foldLeft(commandstr)((m:String,n:JsValue) => {m + n.as[String]  +" "})
-    val lastStr = workeriparr.foldLeft(newStr)((m:String,n:JsValue) => m + n.toString()+" ")
+    val data = request.body.asFormUrlEncoded.get
+    val datasize = data.size
+    
+    Logger.debug(data + " " + datasize)
+    val loopsize = datasize/5
+    var x =0;
     
     
-    Logger.debug(lastStr)
+    val arr = for( x <- 1 to loopsize) yield {
+      val typeval = data.get(x+"select").get(0)
+      val interfaceval = data.get(x+"interface").get(0)
+      val sshportval = data.get(x+"sshport").get(0)
+      val passwordval = data.get(x+"password").get(0)
+      val ipaddressval = data.get(x+"ipaddress").get(0)
+      Node(typeval,interfaceval,passwordval,sshportval,ipaddressval)
+            
+    }
     
-    Process(lastStr).run
+    val firstNode = arr(0)
     
-    Ok("install..... ")
+    //Logger.debug(arr.toString())
+    
+    
+    val commandfirst = "bash /install/install_bootstrap.sh " + firstNode.interfaceval + " " + firstNode.passwordval +
+                                 " " + firstNode.sshportval + " "
+    
+    val masterarr = arr.filter { x => x.selectval == "Master" }
+    val workerarr = arr.filter { x => x.selectval == "Worker" }
+    
+    Logger.debug(masterarr.toString())
+    Logger.debug(workerarr.toString())
+    
+    val commandsecond = masterarr.foldLeft(commandfirst)((m:String, n:Node) => m + n.ipaddressval + " ")
+    val commandthird = workerarr.foldLeft(commandsecond)((m:String, n:Node) => m + n.ipaddressval + " ")
+    
+    Logger.debug(commandthird)
+                                 
+       
+    Process(commandthird).run
+    
+    Ok("hi")
   }
 
 }
