@@ -23,7 +23,7 @@ yum install -y net-tools
 yum install -y wget
 
 echo -e "\n" | ssh-keygen -t rsa -N ""
-wget http://apt.sw.be/redhat/el7/en/x86_64/rpmforge/RPMS/sshpass-1.05-1.el7.rf.x86_64.rpm
+#wget http://apt.sw.be/redhat/el7/en/x86_64/rpmforge/RPMS/sshpass-1.05-1.el7.rf.x86_64.rpm
 
 rpm -Uvh /install/sshpass-1.05-1.el7.rf.x86_64.rpm
 
@@ -157,7 +157,7 @@ bash dcos_generate_config.sh --postflight
 
 
 mkdir dcosclidir && cd dcosclidir
-curl -O https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.8/dcos
+curl -O https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.8/dcos
 chmod +x dcos
 ./dcos config set core.dcos_url http://${array[3]}
 dcos auth login
