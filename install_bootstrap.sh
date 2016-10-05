@@ -184,12 +184,13 @@ modprobe nfsd
 service rpcbind stop
 docker build --tag ichthysngs .
 ./start.sh
+cd /root
 rm -rf installserver
 EOSSH
 
 for(( i=3+$masterIpNum; i<$index; i++))
 do
-ssh -T root@$masterip << EOSSH
+ssh -T root@${array[$i]} << EOSSH
 mkdir -p /nfsdir
 chmod 777 /nfsdir
 mount -t nfs $masterip:/nfsdir /nfsdir
