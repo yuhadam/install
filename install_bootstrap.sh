@@ -160,10 +160,10 @@ mkdir dcosclidir && cd dcosclidir
 curl -O https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.8/dcos
 chmod +x dcos
 ./dcos config set core.dcos_url http://${array[3]}
-dcos auth login
+./dcos auth login
 echo "yes" | ./dcos package install chronos
 
-sleep 1m
+sleep 30s
 
 TEMP=$(./dcos marathon task list --json | grep -n "port" | grep -Eo '[0-9]{1,2}')
 
@@ -173,7 +173,7 @@ ENDPOINT_IP=$(./dcos service | grep chronos | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.
 
 
 ssh -T root@$masterip << EOSSH
-git clone http://www.github.com/ichthysngs/istallserver
+git clone http://www.github.com/ichthysngs/installserver
 cd installserver
 sed -i "15s/^/curl -L -H 'Content-Type: application\/json' -X POST -d @docker.json $ENDPOINT_IP:$ENDPOINT_PORT/" launch.sh
 sed -i "16s/^/curl -L -X PUT $ENDPOINT_IP:$ENDPOINT_PORT/" launch.sh
@@ -189,7 +189,12 @@ EOSSH
 
 for(( i=3+$masterIpNum; i<$index; i++))
 do
-ssh root@${array[$i]} "mkdir -p /nfsdir && chmod 777 /nfsdir && yum install -y nfs-utils && mount -t nfs $masterip:/nfsdir /nfsdir && exit"
+ssh -T root@$masterip << EOSSH
+mkdir -p /nfsdir
+chmod 777 /nfsdir
+mount -t nfs $masterip:/nfsdir /nfsdir
+exit
+EOSSH
 done
 
 echo "##############################################################################"
