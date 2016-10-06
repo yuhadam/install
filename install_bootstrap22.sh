@@ -17,11 +17,7 @@ arrlen=${#array[@]}
 
 
 
-yum -y update
-yum install -y vim
-yum install -y net-tools
-yum install -y wget
-
+cd /dcos
 
 mkdir dcosclidir && cd dcosclidir
 curl -O https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.8/dcos
