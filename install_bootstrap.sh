@@ -153,9 +153,11 @@ bash dcos_generate_config.sh --install-prereqs
 bash dcos_generate_config.sh --preflight
 bash dcos_generate_config.sh --deploy
 bash dcos_generate_config.sh --postflight
-: << 'END'
+
 cd /install
 ./install_bootstrap22.sh ${array[0]} ${array[1]} ${array[2]} ${array[3]} ${array[4]} ${array[5]}
+
+: << 'END'
 
 mkdir dcosclidir && cd dcosclidir
 curl -O https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.8/dcos
