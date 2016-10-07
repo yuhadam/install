@@ -1,4 +1,0 @@
-2016-10-07 17:17:30,260 [INFO] from application in main - ApplicationTimer demo: Starting application at 2016-10-07T08:17:30.244Z.
-2016-10-07 17:17:30,277 [INFO] from play.api.Play in main - Application started (Prod)
-2016-10-07 17:17:30,462 [INFO] from play.core.server.NettyServer in main - Listening for HTTP on /0:0:0:0:0:0:0:0:9000
-2016-10-07 17:17:36,722 [INFO] from application in Thread-7 - ApplicationTimer demo: Stopping application at 2016-10-07T08:17:36.722Z after 6s.
