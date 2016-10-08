@@ -15,9 +15,9 @@ gpgcheck=1
 gpgkey=https://yum.dockerproject.org/gpg
 __EOF__
 
-cat > /etc/modules-load.d/overlay.conf << '__EOF__'
-overlay
-__EOF__
+#cat > /etc/modules-load.d/overlay.conf << '__EOF__'
+#overlay
+#__EOF__
 
 mkdir -p /etc/systemd/system/docker.service.d
 
