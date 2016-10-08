@@ -154,8 +154,8 @@ bash dcos_generate_config.sh --preflight
 bash dcos_generate_config.sh --deploy
 bash dcos_generate_config.sh --postflight
 
-cd /install
-./install_bootstrap22.sh ${array[0]} ${array[1]} ${array[2]} ${array[3]} ${array[4]} ${array[5]}
+#cd /install
+#./install_bootstrap22.sh ${array[0]} ${array[1]} ${array[2]} ${array[3]} ${array[4]} ${array[5]}
 
 : << 'END'
 
@@ -173,13 +173,11 @@ TEMP=$(./dcos marathon task list --json | grep -n "port" | grep -Eo '[0-9]{1,2}'
 PORT_LINE=$(($TEMP+1))
 ENDPOINT_PORT=$(./dcos marathon task list --json | sed "$PORT_LINE,$PORT_LINE!d" | sed 's/ //g')
 ENDPOINT_IP=$(./dcos service | grep chronos | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
-
+END
 
 ssh -T root@$masterip << EOSSH
 git clone http://www.github.com/ichthysngs/installserver
 cd installserver
-sed -i "15s/^/curl -L -H 'Content-Type: application\/json' -X POST -d @docker.json $ENDPOINT_IP:$ENDPOINT_PORT/" launch.sh
-sed -i "16s/^/curl -L -X PUT $ENDPOINT_IP:$ENDPOINT_PORT/" launch.sh
 yum install -y sqlite sqlite-devel
 sqlite3 ichthys.db "insert into user values(0,'admin','$masterip','');"
 modprobe nfs
@@ -204,6 +202,6 @@ done
 echo "##############################################################################"
 echo "###############            all finished              #########################"
 echo "##############################################################################"
-END
+
 
 
