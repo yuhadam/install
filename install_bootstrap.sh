@@ -185,8 +185,8 @@ modprobe nfsd
 service rpcbind stop
 docker build --tag ichthysngs .
 ./start.sh
-cd /root
-rm -rf installserver
+#cd /root
+#rm -rf installserver
 EOSSH
 
 for(( i=3+$masterIpNum; i<$index; i++))
