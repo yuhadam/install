@@ -175,6 +175,8 @@ ENDPOINT_PORT=$(./dcos marathon task list --json | sed "$PORT_LINE,$PORT_LINE!d"
 ENDPOINT_IP=$(./dcos service | grep chronos | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
 END
 
+cd /install/
+
 sed -i "7s/$/--http_notification_url http:\/\/$masterip:9001\/fail\",/" chronos.json && wait
 curl -L -H 'Content-Type: application/json' -X POST -d @chronos.json http://$masterip:8080/v2/apps && wait
 sleep 10s
