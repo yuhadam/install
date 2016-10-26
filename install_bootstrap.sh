@@ -203,8 +203,6 @@ ssh -T root@${array[$i]} << EOSSH
 mkdir -p /nfsdir
 chmod 777 /nfsdir
 mount -t nfs $masterip:/nfsdir /nfsdir
-docker daemon-reload
-docker restart docker
 exit
 EOSSH
 done
