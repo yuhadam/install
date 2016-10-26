@@ -182,6 +182,8 @@ curl -L -H 'Content-Type: application/json' -X POST -d @chronos.json http://$mas
 sleep 10s
 
 ssh -T root@$masterip << EOSSH
+docker run --restart=on-failure:10 -d -p 5000:5000 -e standalone=True -e disable_token_auth=True -v /tmp/registry/:/var/lib/registry/ --name registry registry:2
+
 git clone http://www.github.com/ichthysngs/installserver
 cd installserver
 yum install -y sqlite sqlite-devel
@@ -201,6 +203,8 @@ ssh -T root@${array[$i]} << EOSSH
 mkdir -p /nfsdir
 chmod 777 /nfsdir
 mount -t nfs $masterip:/nfsdir /nfsdir
+docker daemon-reload
+docker restart docker
 exit
 EOSSH
 done
