@@ -152,7 +152,7 @@ bash dcos_generate_config.sh --genconf
 bash dcos_generate_config.sh --install-prereqs
 bash dcos_generate_config.sh --preflight
 bash dcos_generate_config.sh --deploy
-bash dcos_generate_config.sh --postflight
+bash dcos_generate_config.sh --postflight && wait
 
 #cd /install
 #./install_bootstrap22.sh ${array[0]} ${array[1]} ${array[2]} ${array[3]} ${array[4]} ${array[5]}
@@ -174,12 +174,6 @@ PORT_LINE=$(($TEMP+1))
 ENDPOINT_PORT=$(./dcos marathon task list --json | sed "$PORT_LINE,$PORT_LINE!d" | sed 's/ //g')
 ENDPOINT_IP=$(./dcos service | grep chronos | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
 END
-
-cd /install/
-
-sed -i "7s/$/--http_notification_url http:\/\/$masterip:9001\/fail\",/" chronos.json && wait
-curl -L -H 'Content-Type: application/json' -X POST -d @chronos.json http://$masterip:8080/v2/apps && wait
-sleep 10s
 
 ssh -T root@$masterip << EOSSH
 docker run --restart=on-failure:10 -d -p 5000:5000 -e standalone=True -e disable_token_auth=True -v /tmp/registry/:/var/lib/registry/ --name registry registry:2
@@ -206,6 +200,16 @@ mount -t nfs $masterip:/nfsdir /nfsdir
 exit
 EOSSH
 done
+
+
+sleep 10s
+
+cd /install/
+
+sed -i "7s/$/--http_notification_url http:\/\/$masterip:9001\/fail\",/" chronos.json && wait
+curl -L -H 'Content-Type: application/json' -X POST -d @chronos.json http://$masterip:8080/v2/apps && wait
+sleep 10s
+
 
 echo "##############################################################################"
 echo "###############            all finished              #########################"
