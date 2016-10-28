@@ -181,15 +181,15 @@ systemctl daemon-reload
 systemctl restart docker
 docker run --restart=on-failure:10 -d -p 5000:5000 -e standalone=True -e disable_token_auth=True -v /tmp/registry/:/var/lib/registry/ --name registry registry:2
 
-git clone http://www.github.com/ichthysngs/installserver
-cd installserver
-yum install -y sqlite sqlite-devel
-sqlite3 ichthys.db "insert into user values(0,'admin','$masterip','');"
-modprobe nfs
-modprobe nfsd
-service rpcbind stop
-docker build --tag ichthysngs .
-./start.sh
+#git clone http://www.github.com/ichthysngs/installserver
+#cd installserver
+#yum install -y sqlite sqlite-devel
+#sqlite3 ichthys.db "insert into user values(0,'admin','$masterip','');"
+#modprobe nfs
+#modprobe nfsd
+#service rpcbind stop
+#docker build --tag ichthysngs .
+#./start.sh
 #cd /root
 #rm -rf installserver
 EOSSH
@@ -200,9 +200,9 @@ ssh -T root@${array[$i]} << EOSSH
 sed -i "s/ip/$masterip/g" /etc/systemd/system/docker.service.d/override.conf
 systemctl daemon-reload 
 systemctl restart docker
-mkdir -p /nfsdir
-chmod 777 /nfsdir
-mount -t nfs $masterip:/nfsdir /nfsdir
+#mkdir -p /nfsdir
+#chmod 777 /nfsdir
+#mount -t nfs $masterip:/nfsdir /nfsdir
 exit
 EOSSH
 done
