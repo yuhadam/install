@@ -34,7 +34,7 @@ done
 
 for((i=3;i<$arrlen;i++))
 do
-ssh root@${array[$i]} "yum -y update && yum install -y git && cd /root/ && git clone http://www.github.com/ichthysngs/install2 && cd install2 && ./install_nobootstrap.sh $masterip"
+ssh root@${array[$i]} "yum -y update && yum install -y git && cd /root/ && git clone http://www.github.com/ichthysngs/install2 && cd install2 && ./install_nobootstrap.sh"
 echo "#####finish#####"
 done
 
@@ -176,6 +176,9 @@ ENDPOINT_IP=$(./dcos service | grep chronos | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.
 END
 
 ssh -T root@$masterip << EOSSH
+sed -i "s/ip/$masterip/g" /etc/systemd/system/docker.service.d/override.conf
+systemctl daemon-reload
+systemctl restart docker
 docker run --restart=on-failure:10 -d -p 5000:5000 -e standalone=True -e disable_token_auth=True -v /tmp/registry/:/var/lib/registry/ --name registry registry:2
 
 git clone http://www.github.com/ichthysngs/installserver
@@ -194,6 +197,9 @@ EOSSH
 for(( i=3+$masterIpNum; i<$index; i++))
 do
 ssh -T root@${array[$i]} << EOSSH
+sed -i "s/ip/$masterip/g" /etc/systemd/system/docker.service.d/override.conf
+systemctl daemon-reload 
+systemctl restart docker
 mkdir -p /nfsdir
 chmod 777 /nfsdir
 mount -t nfs $masterip:/nfsdir /nfsdir
